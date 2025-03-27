@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DimenXion3D</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .content {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 20px;
+        }
+        div {
+            margin: 40px;
+        }
+        .hero { background-color: #f8f9fa; padding: 50px 0; text-align: center; }
+        .cta-btn { 
+            margin-top: 20px; 
+            display: inline-block; 
+            padding: 15px 30px; 
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #007bff; 
+            color: white; 
+            border-radius: 8px; 
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .cta-btn:hover {
+            background-color: #0056b3;
+        }
+        .section { padding: 50px 0; text-align: center; }
+        .sectioncuraslicer {color: black; background-color: white   }
+        .section img, .hero img { max-width: 200px; height: auto; border-radius: 5%; margin-top: 40px; display: block; margin-left: auto; margin-right: auto; }
+        .offer-section { background-image: url('arrows.png'); background-color: #ffeb3b; padding: 40px; text-align: center; border-radius: 10px; }
+        .threedbenchy img { max-width: 150px; border-radius: 5%  }
+        .email-section { color: #ffffff; background-color: gray; padding: 40px; border-radius: 10px; }
+        .section:not(.bg-light):not(.email-section) {
+            color: white;
+        }
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".slide-left, .slide-right");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(element => observer.observe(element));
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="hero slide-left">
+            <h1>Fast & Affordable 3D Printing for Students!</h1>
+            <p>Get your projects printed quickly without waiting in line.</p>
+            <p><strong>Our fast 3D printers will ensure your print is delivered to you as fast as possible.</strong></p>
+            <a href="https://forms.gle/YOUR_GOOGLE_FORM" class="cta-btn">Order Now</a>
+            <img src="3dprintinggif.gif" alt="3D Printer" class="img-fluid mt-3">
+        </div>
+         
+        <div class="container">
+            <div class="section slide-right">
+                <h2>How It Works</h2>
+                <p>1. Upload your 3D model via our form.</p>
+                <p>2. Get a price estimate and confirm your order.</p>
+                <p>3. Receive your printed model in no time!</p>
+            </div>
+
+            <div class="offer-section threedbenchy slide-left">
+                <h2>Exclusive Offer</h2>
+                <p>Get a free 3DBenchy with your first order!</p>
+                <img src="3dbenchy.png" alt="Free 3DBenchy" class="img-fluid">
+            </div>
+
+            <div class="section bg-light slide-right">
+                <h2>Pricing</h2>
+                <p>Simple pricing based on material used.</p>
+                <p><strong>Starting at ₹2 per gram</strong></p>
+                <p><strong>We only use white PLA filament. Painting will be the responsibility of the customer.</strong></p>
+                <img src="Screenshot 2025-03-06 at 7.19.47 PM.png" alt="Filament" class="img-fluid">
+            </div>
+
+            <div class="section email-section slide-left">
+                <h2>Contact Us</h2>
+                <p>Have questions? Reach out via email:</p>
+                <p><strong>Email:</strong> <a href="mailto:3d.print.labs.india@gmail.com">3d.print.labs.india@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
